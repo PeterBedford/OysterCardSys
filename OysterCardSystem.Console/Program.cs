@@ -37,42 +37,42 @@ namespace OysterCardSystem.ConsoleApp
 
             // Tube journey: Holborn to Earl’s Court
             Console.WriteLine("Swiping in at Holborn (Tube)...");
-            await swipeInCommand.ExecuteAsync(1, "Holborn", JourneyType.Tube);
+            await swipeInCommand.SwipeInAsync(1, "Holborn", JourneyType.Tube);
             Console.WriteLine("Swiped in at Holborn (Tube).");
 
             await Task.Delay(2000); // Delay to simulate time passing
 
             Console.WriteLine("Swiping out at Earl's Court (Tube)...");
-            await swipeOutCommand.ExecuteAsync(1, "Earl's Court");
-            var balanceAfterTube = await getCardBalanceQuery.ExecuteAsync(1);
+            await swipeOutCommand.SwipeOutAsync(1, "Earl's Court");
+            var balanceAfterTube = await getCardBalanceQuery.GetCardBalanceAsync(1);
             Console.WriteLine($"Swiped out at Earl's Court (Tube). Updated Balance: £{balanceAfterTube}");
 
             await Task.Delay(2000); // Delay to simulate time passing
 
             // Bus journey: Earl’s Court to Chelsea
             Console.WriteLine("Swiping in for bus journey at Earl's Court...");
-            await swipeInCommand.ExecuteAsync(1, "Earl's Court", JourneyType.Bus);
+            await swipeInCommand.SwipeInAsync(1, "Earl's Court", JourneyType.Bus);
             Console.WriteLine("Swiped in for bus journey at Earl's Court.");
 
             await Task.Delay(2000); // Delay to simulate time passing
 
             Console.WriteLine("Swiping out at Chelsea (Bus)...");
-            await swipeOutCommand.ExecuteAsync(1, "Chelsea");
-            var balanceAfterBus = await getCardBalanceQuery.ExecuteAsync(1);
+            await swipeOutCommand.SwipeOutAsync(1, "Chelsea");
+            var balanceAfterBus = await getCardBalanceQuery.GetCardBalanceAsync(1);
             Console.WriteLine($"Swiped out at Chelsea (Bus). Updated Balance: £{balanceAfterBus}");
 
             await Task.Delay(2000); // Delay to simulate time passing
 
             // Tube journey: Earl’s Court to Hammersmith
             Console.WriteLine("Swiping in at Earl's Court (Tube)...");
-            await swipeInCommand.ExecuteAsync(1, "Earl's Court", JourneyType.Tube);
+            await swipeInCommand.SwipeInAsync(1, "Earl's Court", JourneyType.Tube);
             Console.WriteLine("Swiped in at Earl's Court (Tube).");
 
             await Task.Delay(2000); // Delay to simulate time passing
 
             Console.WriteLine("Swiping out at Hammersmith (Tube)...");
-            await swipeOutCommand.ExecuteAsync(1, "Hammersmith");
-            var finalBalance = await getCardBalanceQuery.ExecuteAsync(1);
+            await swipeOutCommand.SwipeOutAsync(1, "Hammersmith");
+            var finalBalance = await getCardBalanceQuery.GetCardBalanceAsync(1);
             Console.WriteLine($"Swiped out at Hammersmith (Tube). Final Balance: £{finalBalance}");
 
             await Task.Delay(2000); // Delay to simulate time passing
